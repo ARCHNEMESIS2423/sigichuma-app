@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('site.webmanifest') }}">
     <title>Welcome - {{ config('app.name') }}</title>
-    @vite('resources/css/app.css', 'resources/js/app.js')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
     <body>{{ asset('favicon.ico') }}
         <header>
