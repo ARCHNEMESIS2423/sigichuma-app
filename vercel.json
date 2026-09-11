@@ -9,11 +9,11 @@
     "routes": [
         {
             "src": "/build/(.*)",
-            "dest": "/build/$1"
+            "dest": "/public/build/$1"
         },
         {
-            "src": "/(favicon.*|site/.webmanifest)",
-            "dest": "/$1"
+            "src": "/(favicon.*|site\\.webmanifest|robots\\.txt)",
+            "dest": "/public/$1"
         },
         {
             "src": "/(.*)",
@@ -23,6 +23,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
+        "APP_MAINTENANCE_DRIVER": "file",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
         "APP_PACKAGES_CACHE": "/tmp/packages.php",
