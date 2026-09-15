@@ -37,5 +37,23 @@ Route::get('/db-test', function () {
 
 
 // ==================================================================
+//================  MANUAL MIGRATION TEST ===========================
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/run-migrations', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return response()->json([
+            'status' => 'Success',
+            'output' => Artisan::output()
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'Error',
+            'message' => $e->getMessage()
+        ], 500);
+    }
+});
+//==================================================================
 
 require __DIR__.'/settings.php';
